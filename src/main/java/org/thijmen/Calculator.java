@@ -21,4 +21,20 @@ public class Calculator {
         return (hypotheek.getProcentRente() / 100) / 12;
     }
 
+    public double rentePerMaand() {
+        return hypotheek.getMaximaalTeLenen() * hypotheek.getProcentRentePerMaand();
+    }
+
+    public double aflossingsBedrag() {
+        return hypotheek.getMaximaalTeLenen() / (hypotheek.getRentevastePeriode() * 12);
+    }
+
+    public double totaalMaandBedrag() {
+        return hypotheek.getRenteBedragPerMaand() + hypotheek.getAflossingsBedrag();
+    }
+
+    public double totaalPerMaand() {
+        return hypotheek.getTotaalMaandBedrag() * (hypotheek.getRentevastePeriode() * 12);
+    }
+
 }

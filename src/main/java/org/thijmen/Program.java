@@ -66,7 +66,7 @@ public class Program {
 
         do {
             try {
-                System.out.println("Heb je studieschuld?");
+                System.out.println("Heb je studieschuld? y - n");
                 Scanner scanner = new Scanner(System.in);
                 String studieSchuld = scanner.next();
 
@@ -75,6 +75,7 @@ public class Program {
                     loop = false;
                 } else if (studieSchuld.equals("n"))
                     hypotheek.setStudySchuld(false);
+                    loop = false;
             } catch (InputMismatchException e) {
                 System.out.println("Ongeldige invoer. Voer een geldig getal in.");
             }
@@ -125,7 +126,7 @@ public class Program {
 
                 String answer = scanner.next();
 
-                if (answer.equals('y')) {
+                if (answer.equals("y")) {
                     hypotheek = new Hypotheek();
                     run();
                 } else {
@@ -145,7 +146,7 @@ public class Program {
         System.out.println("Rente bedrag: " + hypotheek.getRenteBedragPerMaand());
         System.out.println("Aflossingbedrag: " + hypotheek.getAflossingsBedrag());
         System.out.println("Totale maandbedrag: " + hypotheek.getTotaalMaandBedrag());
-        System.out.println("Totaal betaald na " + hypotheek.getRentevastePeriode() + "jaar: ");
+        System.out.println("Totaal betaald na " + hypotheek.getTotaalBetalen() + " - " + hypotheek.getRentevastePeriode() + "jaar: ");
     }
 
 }

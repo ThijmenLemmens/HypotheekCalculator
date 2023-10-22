@@ -3,15 +3,19 @@ package org.thijmen;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.text.DecimalFormat;
+
 public class Hypotheek {
 
     @Getter @Setter private double inkomen;
     @Getter @Setter private double procentRente;
+    @Getter @Setter private double procentRentePerMaand;
     @Getter @Setter private double maximaalTeLenen;
     @Getter @Setter private boolean studySchuld;
     @Getter @Setter private double renteBedragPerMaand;
     @Getter @Setter private double aflossingsBedrag;
     @Getter @Setter private double totaalMaandBedrag;
+    @Getter @Setter private double totaalBetalen;
     @Getter @Setter private int rentevastePeriode;
 
     private ZipCodeChecker zipCodeChecker;
@@ -39,8 +43,13 @@ public class Hypotheek {
     }
 
     public void calculate() {
-        this.calculator.maxHypotheekLast();
-        this.calculator.procentRentePerMaand();
+        DecimalFormat df = new DecimalFormat("#.##");
+        this.procentRentePerMaand = this.calculator.procentRentePerMaand();
+        this.maximaalTeLenen = Double.parseDouble(df.format(this.calculator.maxHypotheekLast()));
+        this.renteBedragPerMaand = Double.parseDouble(df.format(this.calculator.rentePerMaand()));
+        this.aflossingsBedrag = Double.parseDouble(df.format(this.calculator.aflossingsBedrag()));
+        this.totaalMaandBedrag = Double.parseDouble(df.format(this.calculator.totaalMaandBedrag()));
+        this.totaalBetalen = Double.parseDouble(df.format(this.calculator.totaalPerMaand()));
     }
 
 }
