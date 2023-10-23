@@ -31,9 +31,14 @@ public class Program {
             try {
                 System.out.print("Voer u inkomen in: ");
                 Scanner scanner = new Scanner(System.in);
+
                 double inkomen = scanner.nextDouble();
+
+                if (inkomen == -1)
+                    break;
+
                 hypotheek.setInkomen(hypotheek.getInkomen() + inkomen);
-                loop = false;
+                System.out.println("-1 is stop");
             } catch (InputMismatchException e) {
                 System.out.println("Ongeldige invoer. Voer een geldig getal in.");
             }
@@ -146,7 +151,7 @@ public class Program {
         System.out.println("Rente bedrag: " + hypotheek.getRenteBedragPerMaand());
         System.out.println("Aflossingbedrag: " + hypotheek.getAflossingsBedrag());
         System.out.println("Totale maandbedrag: " + hypotheek.getTotaalMaandBedrag());
-        System.out.println("Totaal betaald na " + hypotheek.getTotaalBetalen() + " - " + hypotheek.getRentevastePeriode() + "jaar: ");
+        System.out.println("Totaal betaald na " + hypotheek.getTotaalBetalen() + " - " + hypotheek.getRentevastePeriode() + " jaar");
     }
 
 }
