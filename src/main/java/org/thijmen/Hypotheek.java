@@ -42,14 +42,24 @@ public class Hypotheek {
         return zipCodeChecker.checkZipCode(zipcode);
     }
 
+    public double totaalBetalen() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        return Double.parseDouble(df.format(this.calculator.totaalBetalen()));
+    }
+
+    public double totaalMaandBedrag() {
+        DecimalFormat df = new DecimalFormat("#.##");
+        return Double.parseDouble(df.format(this.calculator.totaalMaandBedrag()));
+    }
+
     public void calculate() {
         DecimalFormat df = new DecimalFormat("#.##");
         this.procentRentePerMaand = this.calculator.procentRentePerMaand();
         this.maximaalTeLenen = Double.parseDouble(df.format(this.calculator.maxHypotheekLast()));
         this.renteBedragPerMaand = Double.parseDouble(df.format(this.calculator.rentePerMaand()));
         this.aflossingsBedrag = Double.parseDouble(df.format(this.calculator.aflossingsBedrag()));
-        this.totaalMaandBedrag = Double.parseDouble(df.format(this.calculator.totaalMaandBedrag()));
-        this.totaalBetalen = Double.parseDouble(df.format(this.calculator.totaalPerMaand()));
+        this.totaalMaandBedrag = totaalMaandBedrag();
+        this.totaalBetalen = totaalBetalen();
     }
 
 }

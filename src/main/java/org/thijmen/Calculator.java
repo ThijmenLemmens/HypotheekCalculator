@@ -33,7 +33,7 @@ public class Calculator {
         return hypotheek.getRenteBedragPerMaand() + hypotheek.getAflossingsBedrag();
     }
 
-    public double totaalPerMaand() {
+    public double totaalBetalen() {
         return hypotheek.getTotaalMaandBedrag() * (hypotheek.getRentevastePeriode() * 12);
     }
 

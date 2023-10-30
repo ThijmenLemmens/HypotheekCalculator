@@ -134,7 +134,7 @@ public class Program {
                 if (answer.equals("y")) {
                     hypotheek = new Hypotheek();
                     run();
-                } else {
+                } else if (answer.equals("n")) {
                     System.exit(-1);
                 }
 

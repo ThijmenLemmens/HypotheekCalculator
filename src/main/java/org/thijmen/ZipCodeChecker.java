@@ -14,7 +14,11 @@ public class ZipCodeChecker {
             if (matcher.find()) {
                 int postcodeCijfer = Integer.parseInt(matcher.group());
 
-                return postcodeCijfer != 9679 && postcodeCijfer != 9681 && postcodeCijfer != 9682;
+                if (postcodeCijfer == 9679 || postcodeCijfer == 9681 || postcodeCijfer == 9682)
+                    return false;
+                else
+                    return true;
+
             }
         }
 
