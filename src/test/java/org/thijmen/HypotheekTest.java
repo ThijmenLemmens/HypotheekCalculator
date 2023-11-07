@@ -50,7 +50,7 @@ public class HypotheekTest {
     }
 
     @Test
-    public void totaalMandBedragEqualsTrue() {
+    public void totaalMaandBedragEqualsTrue() {
         Mockito.when(calculator.totaalMaandBedrag()).thenReturn(1770.83);
 
         double result = hypotheek.totaalMaandBedrag();
@@ -61,7 +61,7 @@ public class HypotheekTest {
     }
 
     @Test
-    public void totaalMandBedragEqualsFalse() {
+    public void totaalMaandBedragEqualsFalse() {
         Mockito.when(calculator.totaalMaandBedrag()).thenReturn(1720.83);
 
         double result = hypotheek.totaalMaandBedrag();
@@ -130,5 +130,12 @@ public class HypotheekTest {
         Mockito.verify(calculator).aflossingsBedrag();
         Mockito.verify(calculator).totaalMaandBedrag();
         Mockito.verify(calculator).totaalBetalen();
+
+        Assertions.assertEquals(hypotheek.getProcentRentePerMaand(), 5.0);
+        Assertions.assertEquals(hypotheek.getMaximaalTeLenen(), 250000.0);
+        Assertions.assertEquals(hypotheek.getRenteBedragPerMaand(), 700.0);
+        Assertions.assertEquals(hypotheek.getAflossingsBedrag(), 1000.0);
+        Assertions.assertEquals(hypotheek.getTotaalMaandBedrag(), 1770.83);
+        Assertions.assertEquals(hypotheek.getTotaalBetalen(), 600000.0);
     }
 }
